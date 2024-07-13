@@ -14,6 +14,41 @@ const ChatList = () => {
         </div>
         <img src={addChange ? "./minus.png" : "./plus.png"} onClick={()=>setAddChange((prev)=>!prev)} alt="" className='plus'/>
       </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Jane Doe</span>
+          <p>Hello</p>
+        </div>
+      </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Jane Doe</span>
+          <p>Hello</p>
+        </div>
+      </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Jane Doe</span>
+          <p>Hello</p>
+        </div>
+      </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Jane Doe</span>
+          <p>Hello</p>
+        </div>
+      </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Jane Doe</span>
+          <p>Hello</p>
+        </div>
+      </div>
     </div>
   )
 }
