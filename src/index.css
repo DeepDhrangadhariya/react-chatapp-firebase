@@ -12,4 +12,14 @@ body{
   justify-content: center;
   height: 100vh;
   color: white;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(47, 45, 19, 0.3) #0000;
+
+  /* -ms-overflow-style: none; */
+  /* scrollbar-width: none; */
 }
+
+/* body::-webkit-scrollbar-button{
+    display: none;
+  } */
