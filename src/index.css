@@ -16,6 +16,8 @@ body{
   scrollbar-width: thin;
   scrollbar-color: rgba(47, 45, 19, 0.3) #0000;
 
+  scroll-behavior: smooth;
+
   /* -ms-overflow-style: none; */
   /* scrollbar-width: none; */
 }

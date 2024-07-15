@@ -57,10 +57,12 @@
     .center{
         padding: 20px;
         flex: 1;
-        overflow: scroll;
+        overflow-y: auto;
+        /* overflow: scroll; */
         display: flex;
         flex-direction: column;
         gap: 20px;
+        /* transition: 2000ms; */
 
         .message{
             max-width: 70%;
