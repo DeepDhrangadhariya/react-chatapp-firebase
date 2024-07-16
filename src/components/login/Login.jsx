@@ -3,7 +3,7 @@ import "./login.css"
 import { toast } from 'react-toastify'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../../library/firebase'
-import { doc, setDoc } from 'firebase/firestore'
+import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore'
 import upload from '../../library/upload'
 
 const Login = () => {
@@ -30,6 +30,17 @@ const Login = () => {
         const formData = new FormData(e.target)
 
         const {username, email, password} = Object.fromEntries(formData)
+
+        if (!username || !email || !password) return toast.warn("Please Enter Inputs!") && setLoading(false)
+
+        if(!avatar.file) return toast.warn("Please Upload An Avatar!") && setLoading(false)
+
+        const userRef = collection(db, "users")
+        const q = query(userRef, where("username", "==", username))
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+          return toast.warn("Select another username") && setLoading(false)
+        }
 
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password)
@@ -69,6 +80,8 @@ const Login = () => {
         try {
 
             await signInWithEmailAndPassword(auth, email, password)
+            toast.success("Login Success!")
+            window.location.reload()
             
         } catch (error) {
             console.log(error)
@@ -83,8 +96,8 @@ const Login = () => {
         <div className="item">
             <h2>Welcome Back,</h2>
             <form onSubmit={handleLogin}>
-                <input type="text" placeholder='Email' name='email' />
-                <input type="text" placeholder='Password' name='password' />
+                <input type="email" placeholder='Email' name='email' />
+                <input type="password" placeholder='Password' name='password' />
                 <button disabled={loading}>{loading ? "Loading" : "Sign In"}</button>
             </form>
         </div>
