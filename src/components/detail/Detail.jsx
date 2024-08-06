@@ -93,12 +93,13 @@ const Detail = () => {
         </div>
       </div>
       <div className="blockBtn">
-        <button onClick={handleBlock} >{
+        <button onClick={handleBlock} className={isReceiverBlocked ? 'unblock' : ""}>{
       
-          isCurrentUserBlocked ? "You Are Blocked!" : isReceiverBlocked ? "User Blocked" : "Block User"
+          isCurrentUserBlocked ? "You Are Blocked!" : isReceiverBlocked ? "Unblock User"  : "Block User"
 
-      }</button>
-      <button className='logOut' onClick={handleLogout} >Log Out</button>
+        }</button>
+        
+        <button className='logOut' onClick={handleLogout} >Log Out</button>
       </div>
     </div>
   )

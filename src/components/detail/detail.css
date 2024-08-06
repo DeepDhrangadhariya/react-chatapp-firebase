@@ -111,6 +111,16 @@
                 background-color: rgba(212, 22, 63, 0.768);
             }
 
+            &.unblock{
+                background-color: rgba(87, 230, 74, 0.553);
+
+                &:hover{
+
+                    background-color: rgba(70, 212, 22, 0.768);
+                }
+
+            }
+
             &.logOut{
                 padding: 10px;
                 background-color: #febc51c0;
